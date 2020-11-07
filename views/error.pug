@@ -1,0 +1,14 @@
+extends layout
+
+block scripts
+    link(rel='stylesheet', href='/stylesheets/index.css')
+
+block content
+  .jumbotron.jumbotron-fluid.vertical-center 
+    .container
+      .intro
+        h1 We can't find the site that you are looking for...
+        h4 Please return to our Home Page and upload a landmark photo.
+        br
+        a(href="/") 
+          button.btn-info.btn-lg Return to Home Page

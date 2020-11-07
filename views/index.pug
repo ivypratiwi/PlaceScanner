@@ -1,0 +1,20 @@
+extends layout
+
+block scripts
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    script(src='/javascripts/loadbar.js')
+
+block content
+  .jumbotron.jumbotron-fluid.vertical-center 
+    .container.container-index
+      .intro
+          h2 Explore. Learn. Educate.
+          h5 Just upload a landmark photo and you will find information of your place of interest easily.
+
+          form#form.form-control-lg(action="/" enctype="multipart/form-data" method="POST")
+            input(type="file" name="uploadImage" id="uploadImage" accept="image/*" required)
+            button#btnFetch(type="submit" class="btn btn-info btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Loading") Upload an Image  
+            
+          if status
+            div.alert.alert-danger(role="alert")
+              p=status

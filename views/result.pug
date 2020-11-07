@@ -1,0 +1,45 @@
+extend layout
+block scripts
+    link(rel='stylesheet', href='/stylesheets/result.css')
+    script(src='/javascripts/map.js')
+
+block content
+  - const {longitude,latitude,landmarkdescription,geocode,youtubedata,fileupload,photopath}=data
+  .container-fluid
+    .row
+      .col-lg-8
+        .homepage-btn
+          i(class="fas fa-caret-left") 
+          a(href="/") Home Page
+        h1 #{landmarkdescription}
+        if(youtubedata.error==false)
+          h4 #{youtubedata.title}
+          div.embed-responsive.embed-responsive-16by9
+            iframe.embed-responsive-item(src=youtubedata.url, frameborder="0", allowfullscreen)
+        else
+          div.youtube-error
+            h4.center Youtube data not found.  
+      .col-lg-4.detail-container
+        h1 Details
+        .img-div
+          img.img-responsive.fit-image(src= photopath alt="Image Uploaded")
+        .detail-result
+          if(geocode.error==false)
+            if(geocode.country)
+              h6 Country: #{geocode.country}
+            if(geocode.city)
+              h6 City: #{geocode.city}
+            if(geocode.state)
+              h6 State: #{geocode.state}
+          h6 Longitude: #{longitude.toFixed(4)} 
+          h6 Latitude: #{latitude.toFixed(4)}
+    .row 
+      .col-lg-8
+        div.location-container
+            h3 Location
+            if(geocode.address)
+              p Address: #{geocode.address}
+            div#map(data-longitude=longitude data-latitude=latitude)
+
+
+  script(defer src=`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&callback=initMap`)

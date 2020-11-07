@@ -1,0 +1,13 @@
+//REPLACE "XXX" WITH YOUR GOOGLE VISION KEY AND REMOVE THIS COMMENT AFTERWARDS
+{
+    "type": "XXX",
+    "project_id": "XXX",
+    "private_key_id": "XXX",
+    "private_key": "XXX",
+    "client_email": "XXX",
+    "client_id": "XXX",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "XXX",
+    "client_x509_cert_url": "XXX"
+}
